@@ -114,3 +114,28 @@ The object will automatically rotate its -z axis toward the target you provided.
 ### Scene graph
 
 You can group related objects with Group class.
+
+## Animations
+
+The screen you are looking at runs at a specific frequency. We call that a frame rate. The frame rate mostly depends on the screen, but the computer itself has limitations. Most screens run at 60 frames per second. If you do the maths, that means about a frame every 16ms. But some screens can run much faster, and when the computer has difficulties processing things, it'll run more slowly.
+
+### window.requestAnimation(...)
+
+requestAnimationFrame will execute the function you provide on the next frame.
+
+### Adaptation to the framerate
+
+To adapt the animation to the framerate, we need to know how much time it's been since the last tick.
+
+You can use
+
+- Clock Class
+- Timestamp
+
+### Using a library
+
+Sometimes you'll want to animate your scene in a very specific way that will require using another library.
+
+- GSAP
+
+GSAP has a built-in requestAnimationFrame, so you don't need to update the animation by yourself, but still, if you want to see the cube moving, you need to keep doing the renders of your scene on each frame.
