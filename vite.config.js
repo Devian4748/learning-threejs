@@ -16,6 +16,7 @@ export default {
         firstProject: "src/pages/first-project/index.html",
         transformObjects: "src/pages/transform-objects/index.html",
         animations: "src/pages/animations/index.html",
+        cameras: "src/pages/cameras/index.html",
         // Add other entry points here if needed
       },
     },

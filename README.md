@@ -8,14 +8,6 @@ deploy website : https://devian4748.github.io/learning-threejs/
 
 **WebGL** is a JavaScript API that renders triangles in a canvas
 
-It's fast because it uses the **Graphic Processing Unit (GPU)** of the visitor. The GPU can do thousands of parallel calculations.
-
-Once the model's points are well placed, the GPU needs to draw each visible pixel of those triangles. The instructions to place the points and draw the pixels are written in what we call **shaders**.
-
-We also need to provide data to these shaders. For example: how to place the points according to the model transformations and the camera's properties. These are called **matrices**.
-
-Drawing a single triangle on the canvas would take at least 100 lines of code. But native WebGL benefits from existing at a low level, very close to the GPU. This enables excellent optimizations and more control.
-
 ### What is ThreeJS
 
 **Three.js** is a JavaScript library under MIT license that works right above WebGL. The library's goal is to drastically simplify the process of handling all of what we just stated.
@@ -31,48 +23,22 @@ We need 4 element to render
 
 ## Transform objects
 
-There are 4 properties to transform objects
+There are 4 properties to transform objects. All classes that inherit from the Object3D class possess those properties.
 
 - position
 - scale
 - rotation
 - quaternion
 
-All classes that inherit from the Object3D class possess those properties.
-
-Those properties will be compiled in what we call matrices. Matrices are used internally by Three.js, by the WebGL, and by the GPU to transform things.
-
 ### Position
 
-The position possesses 3 essential properties
+The position possesses 3 essential properties. The direction of each axis is purely arbitrary. As for the meaning of 1 unit, it's up to you.
 
 - x
 - y
 - z
 
-The direction of each axis is purely arbitrary, and it can vary according to the environment. In Three.js, we usually consider that the y axis is going upward, the z axis is going backward, and the x axis is going to the right.
-
-As for the meaning of 1 unit, it's up to you.
-
-> Make sure to do that before you call the **render(...)** method or you will render the mesh before moving it.
-
-The position property is an instnace of the Vector3 class. and it has useful methods.
-
-- **Vector3.prototype.length()**
-
-  You can get the length of a vector.
-
-- **Vector3.prototype.distanceTo(Vector3)**
-
-  You can get the distance from another Vector3
-
-- **Vector3.prototype.normalize()**
-
-  You can normalize its value
-
-- **Vector3.prototype.set(x, y, z)**
-
-  You can update x, y and z axes
+The position property is an instnace of the Vector3 class.
 
 #### Axes helper
 
@@ -139,3 +105,78 @@ Sometimes you'll want to animate your scene in a very specific way that will req
 - GSAP
 
 GSAP has a built-in requestAnimationFrame, so you don't need to update the animation by yourself, but still, if you want to see the cube moving, you need to keep doing the renders of your scene on each frame.
+
+## Cameras
+
+There are several types of cameras.
+
+- Camera
+
+  > This class is abstract class.
+
+- ArrayCamera
+- StereoCamera
+- CubeCamera
+- OrthographicCamera
+  > The OrthographicCamera is used to create orthographic renders of your scene without perspective.
+- PerspectiveCamera
+  > Simulated a real-life camera with perspective.
+
+### PerspectiveCamera
+
+PerspectiveCamera class needs some parameters to be instantiated
+
+- Field of view
+  > The first parameter called field of view corresponds to your camera view's vertical amplitude angle in degrees.  
+  > Recommend scope : 45 ~ 75
+- Aspect ratio
+- Near and far
+
+> **z-fighting**  
+> While you might be tempted to use very small and very large values like 0.0001 and 9999999 you might end up with a bug called z-fighting where two faces seem to fight for which one will be rendered above the other.
+
+### OrthographicCamera
+
+OrthographicCamera class needs some parameters to be instantiated. Instead of a field of view, you must provide how far the camera can see in each direction
+
+- left
+- right
+- top
+- bottom
+- near
+- far
+
+left, right, top, bottom area ==== renderer area
+
+### Custom controls
+
+**Control with Mouse**
+
+1. Get mouse coordinates using mousemove event
+2. Transform Object in animation loop
+
+### Built-in controls
+
+- DeviceOrientationControls
+- FlyControls
+- FirstPersonControls
+- PointerLockControls
+- OrbitControls
+- TrackballControls
+- TransformControls
+- DragControls
+
+**OrbitControls**
+
+You can now
+
+- drag and drop
+- move camera
+- zoom in or out
+
+Feature
+
+- Target
+  > By default, the camera is looking at the center of the scene. you can change that with the target property
+- Damping
+  > The damping will smooth the animation by adding some kind of acceleration and friction formulas.
