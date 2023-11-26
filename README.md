@@ -17,3 +17,12 @@ Drawing a single triangle on the canvas would take at least 100 lines of code. B
 ### What is ThreeJS
 
 **Three.js** is a JavaScript library under MIT license that works right above WebGL. The library's goal is to drastically simplify the process of handling all of what we just stated.
+
+### How to render
+
+We need 4 element to render
+
+- A scene
+- Some Objects
+- A camera
+- A renderer
