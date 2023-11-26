@@ -14,6 +14,7 @@ export default {
       input: {
         main: "src/index.html",
         firstProject: "src/pages/first-project/index.html",
+        transformObjects: "src/pages/transform-objects/index.html",
         // Add other entry points here if needed
       },
     },
