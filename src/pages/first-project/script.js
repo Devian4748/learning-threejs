@@ -17,8 +17,8 @@ scene.add(mesh);
 
 // Sizes
 const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight,
+  width: window.outerWidth,
+  height: window.outerHeight,
 };
 
 // Camera
@@ -33,3 +33,11 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 
 renderer.render(scene, camera);
+
+window.addEventListener("resize", () => {
+  sizes.width = window.outerWidth;
+  sizes.height = window.outerHeight;
+  camera.aspect = sizes.width / sizes.height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(sizes.width, sizes.height);
+});
