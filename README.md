@@ -191,3 +191,56 @@ Feature
 - Using window.fullscreenElement
 - Using element.requestFullscreen()
 - Using document.exitFullscreen();
+
+## Geometries
+
+### What is geometry
+
+In Three.js, geometries are composed of vertices and faces
+
+We can use geometries to create meshes or to form particles
+
+### The different built-in geometries
+
+- BufferGeometry
+- BoxGeometry
+- CapsuleGeometry
+- CircleGeometry
+- ConeGeometry
+- CylinderGeometry
+- DodecahedronGeometry
+- ExtrudeGeometry
+- IcosahedronGeometry
+- LatheGeometry
+- OctahedronGeometry
+- PlaneGeometry
+- RingGeometry
+- ShapeGeometry
+- SphereGeometry
+- TetrahedronGeometry
+- TorusGeometry
+- TorusKnotGeometry
+- TubeGeometry
+
+### BoxGeometry
+
+The BoxGeometry has 6 parameters
+
+- width
+- height
+- depth
+- widthSegments
+- heightSegments
+- depthSegments
+
+Subdivisions correspond to how much triangles should compose the face.
+
+### Creating your own buffer geometry
+
+If the geometry is very complex or with a precise shape, it's better to create it in a 3D software. but if the geometry isn't too complex, we can build it ourself by using BufferGeometry.
+
+- Using Float32Array
+- Using BufferAttribute as position and Using BufferGeometry
+
+> **Index**
+> One interesting thing with BufferGeometry is that you can mutualize vertices using the index property.

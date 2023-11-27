@@ -18,6 +18,7 @@ export default {
         animations: "src/pages/animations/index.html",
         cameras: "src/pages/cameras/index.html",
         fullscreenAndResizing: "src/pages/fullscreen-and-resizing/index.html",
+        geometries: "src/pages/geometries/index.html",
         // Add other entry points here if needed
       },
     },
