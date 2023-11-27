@@ -244,3 +244,7 @@ If the geometry is very complex or with a precise shape, it's better to create i
 
 > **Index**
 > One interesting thing with BufferGeometry is that you can mutualize vertices using the index property.
+
+## Debug UI
+
+Using [lil-gui](https://lil-gui.georgealways.com/)
