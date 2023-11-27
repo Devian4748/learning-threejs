@@ -31,8 +31,8 @@ scene.add(mesh);
 
 // Sizes
 const sizes = {
-  width: window.outerWidth,
-  height: window.outerHeight,
+  width: window.innerWidth,
+  height: window.innerHeight,
 };
 const aspectRatio = sizes.width / sizes.height;
 /**
@@ -94,8 +94,8 @@ tick();
 
 // Resize Event Handler
 window.addEventListener("resize", () => {
-  sizes.width = window.outerWidth;
-  sizes.height = window.outerHeight;
+  sizes.width = window.innerWidth;
+  sizes.height = window.innerHeight;
 
   // When using perspective camera
   camera.aspect = sizes.width / sizes.height;

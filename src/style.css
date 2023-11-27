@@ -24,14 +24,22 @@ html {
 body {
     line-height: 1;
     background: linear-gradient(to right, var(--background-start), var(--background-end));
+    overflow: hidden;
+
 }
 
 header {
+
+    position: fixed;
+    top: 20px;
+    z-index: 2;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 80px;
+
+    width: 100%;
 }
 
 header h1 {
@@ -40,15 +48,21 @@ header h1 {
 }
 
 .container {
+    position: relative;
+    margin-top: 72px;
+
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
     padding: 30px;
+
+    height: 80vh;
+    overflow: scroll;
+
 }
 
 nav {
-    flex: 1;
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -59,6 +73,7 @@ nav {
 }
 
 nav li {
+
     width: 200px;
     height: 100px;
     background-color: var(--navigation-background);
@@ -87,4 +102,8 @@ nav li a {
 
 nav li:hover a {
     color: var(--navigation-font-active);
+}
+
+.webgl {
+    outline: none;
 }

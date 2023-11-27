@@ -50,12 +50,10 @@ Scale is a Vector3. By default, x, y and z are equal to 1.
 
 ### Rotate
 
-There are two ways of handling a rotation.
+There are two ways of handling a rotation. Three.js supports both, and updating one will automatically update the other.
 
 - rotation
 - quaternion
-
-Three.js supports both, and updating one will automatically update the other.
 
 _Rotation_
 
@@ -66,16 +64,11 @@ The value of these axes is expressed in radians.
 > **Gimbal Lock**  
 > while you rotate the x axis, you also change the other axes' orientation. The rotation applies in the following order: x, y, and then z. That can result in weird behaviors like one named gimbal lock when one axis has no more effect, all because of the previous ones.
 
-We can change this order by using the reorder(...) method and this is why most engines and 3D softwares use another solution named **Quaternion**.
+We can change this order by using the reorder(...) method
 
 _Quaternion_
 
 The quaternion property also expresses a rotation, but in a more mathematical way, which solves the order problem.
-
-**Object3D.prototype.lookAt(Vector3)**
-Object3D instances have a method that lets you ask an object to look at something.
-
-The object will automatically rotate its -z axis toward the target you provided.
 
 ### Scene graph
 
@@ -83,7 +76,8 @@ You can group related objects with Group class.
 
 ## Animations
 
-The screen you are looking at runs at a specific frequency. We call that a frame rate. The frame rate mostly depends on the screen, but the computer itself has limitations. Most screens run at 60 frames per second. If you do the maths, that means about a frame every 16ms. But some screens can run much faster, and when the computer has difficulties processing things, it'll run more slowly.
+> **FPS (Frame Per Second)**  
+> The screen you are looking at runs at a specific frequency. We call that a frame rate. The frame rate mostly depends on the screen, but the computer itself has limitations. Most screens run at 60 frames per second. If you do the maths, that means about a frame every 16ms. But some screens can run much faster, and when the computer has difficulties processing things, it'll run more slowly.
 
 ### window.requestAnimation(...)
 
@@ -104,31 +98,22 @@ Sometimes you'll want to animate your scene in a very specific way that will req
 
 - GSAP
 
-GSAP has a built-in requestAnimationFrame, so you don't need to update the animation by yourself, but still, if you want to see the cube moving, you need to keep doing the renders of your scene on each frame.
-
 ## Cameras
 
 There are several types of cameras.
 
 - Camera
-
-  > This class is abstract class.
-
 - ArrayCamera
 - StereoCamera
 - CubeCamera
 - OrthographicCamera
-  > The OrthographicCamera is used to create orthographic renders of your scene without perspective.
 - PerspectiveCamera
-  > Simulated a real-life camera with perspective.
 
 ### PerspectiveCamera
 
 PerspectiveCamera class needs some parameters to be instantiated
 
 - Field of view
-  > The first parameter called field of view corresponds to your camera view's vertical amplitude angle in degrees.  
-  > Recommend scope : 45 ~ 75
 - Aspect ratio
 - Near and far
 
@@ -177,6 +162,32 @@ You can now
 Feature
 
 - Target
-  > By default, the camera is looking at the center of the scene. you can change that with the target property
 - Damping
-  > The damping will smooth the animation by adding some kind of acceleration and friction formulas.
+
+## FullScreen and Resizing
+
+### Fit in the viewport
+
+- Using window.innerSizes
+- Styling - margin, padding, outline, overflow
+
+### Handle resize
+
+- Using window event handler - resize
+  - Update sizes
+  - Update camera aspect ratio and projection matrix
+  - Update renderer
+  - Update renderer pixel ratio
+
+### Handle pixel ratio
+
+- Using window.devicePixelRatio
+  - 1 : 1 times
+  - 2 : 4 times
+  - 3 : 9 times
+
+### Handle fullscreen
+
+- Using window.fullscreenElement
+- Using element.requestFullscreen()
+- Using document.exitFullscreen();
