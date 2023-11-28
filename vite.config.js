@@ -20,6 +20,7 @@ export default {
         fullscreenAndResizing: "src/pages/fullscreen-and-resizing/index.html",
         geometries: "src/pages/geometries/index.html",
         debugUI: "src/pages/debug-ui/index.html",
+        textures: "src/pages/textures/index.html",
         // Add other entry points here if needed
       },
     },

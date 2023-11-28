@@ -57,14 +57,12 @@ There are two ways of handling a rotation. Three.js supports both, and updating 
 
 _Rotation_
 
-The rotation property also has x, y, and z properties, but instead of a Vector3, it's a **Euler**.
+- **Euler**
+- The value of these axes is expressed in radians.
 
-The value of these axes is expressed in radians.
+**Check**
 
-> **Gimbal Lock**  
-> while you rotate the x axis, you also change the other axes' orientation. The rotation applies in the following order: x, y, and then z. That can result in weird behaviors like one named gimbal lock when one axis has no more effect, all because of the previous ones.
-
-We can change this order by using the reorder(...) method
+> **Gimbal Lock**
 
 _Quaternion_
 
@@ -76,8 +74,9 @@ You can group related objects with Group class.
 
 ## Animations
 
-> **FPS (Frame Per Second)**  
-> The screen you are looking at runs at a specific frequency. We call that a frame rate. The frame rate mostly depends on the screen, but the computer itself has limitations. Most screens run at 60 frames per second. If you do the maths, that means about a frame every 16ms. But some screens can run much faster, and when the computer has difficulties processing things, it'll run more slowly.
+**Check**
+
+> **FPS (Frame Per Second)**
 
 ### window.requestAnimation(...)
 
@@ -93,8 +92,6 @@ You can use
 - Timestamp
 
 ### Using a library
-
-Sometimes you'll want to animate your scene in a very specific way that will require using another library.
 
 - GSAP
 
@@ -117,8 +114,9 @@ PerspectiveCamera class needs some parameters to be instantiated
 - Aspect ratio
 - Near and far
 
-> **z-fighting**  
-> While you might be tempted to use very small and very large values like 0.0001 and 9999999 you might end up with a bug called z-fighting where two faces seem to fight for which one will be rendered above the other.
+**Check**
+
+> **z-fighting**
 
 ### OrthographicCamera
 
@@ -237,14 +235,74 @@ Subdivisions correspond to how much triangles should compose the face.
 
 ### Creating your own buffer geometry
 
-If the geometry is very complex or with a precise shape, it's better to create it in a 3D software. but if the geometry isn't too complex, we can build it ourself by using BufferGeometry.
+If the geometry isn't too complex, we can build it ourself by using BufferGeometry.
 
 - Using Float32Array
 - Using BufferAttribute as position and Using BufferGeometry
 
+**Check**
+
 > **Index**
-> One interesting thing with BufferGeometry is that you can mutualize vertices using the index property.
 
 ## Debug UI
 
 Using [lil-gui](https://lil-gui.georgealways.com/)
+
+## Textures
+
+### What are textures
+
+Textures are images that will cover the surface of your geometries.
+
+### PBR(Physically Based Rendering)
+
+Those textures (especially the metalness and the roughness) follow what we call PBR principles.
+
+- Color(or albedo)
+- Alpha
+- Height
+- Normal
+- Ambient occulsion
+- Metalness
+- Roughness
+
+### How to load textures
+
+1. Getting the URL of the image
+2. Loading the image
+
+or
+
+- Using TextureLoader
+- Using LoadingManager
+
+### UV unwrapping
+
+**UV coordinate**
+
+> UV coordinates in the context of 3D modeling and graphics (like in ThreeJS) are a way to map a 2D texture onto the surface of a 3D model.
+
+**UV unwrapping**
+
+> The texture is being stretched or squeezed in different ways to cover the geometry.
+
+### Transforming the texture
+
+- repeat
+- offset
+- rotation
+
+### Filtering and Mipmapping
+
+**Mipmapping**
+
+> Mipmapping (or "mip mapping" with a space) is a technique that consists of creating half a smaller version of a texture again and again until you get a 1x1 texture. All those texture variations are sent to the GPU, and the GPU will choose the most appropriate version of the texture.
+
+- Minification filter
+- Magnification filter
+
+### Texture format and optimisation
+
+- The weight
+- The size
+- The data
