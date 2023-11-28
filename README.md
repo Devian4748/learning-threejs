@@ -306,3 +306,27 @@ or
 - The weight
 - The size
 - The data
+
+## Material
+
+Materials are used to put a color on each visible pixel of the geometries.
+
+The algorithms that decide on the color of each pixel are written in programs called **shaders**.
+
+- MeshBasicMaterial
+  - map
+  - color
+  - wireframe
+  - opacity
+  - alphamap
+  - side
+- MeshNormalMaterial  
+  Normals are information encoded in each vertex that contains the direction of the outside of the face.
+- MeshMatcapMaterial
+- MeshDepthMaterial
+- MeshLambertMaterial
+- MeshPhongMaterial
+- MeshToonMaterial
+- MeshStandardMaterial  
+  The MeshStandardMaterial uses physically based rendering principles.
+- MeshPhysicalMaterial

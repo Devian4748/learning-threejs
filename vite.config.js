@@ -21,6 +21,7 @@ export default {
         geometries: "src/pages/geometries/index.html",
         debugUI: "src/pages/debug-ui/index.html",
         textures: "src/pages/textures/index.html",
+        materials: "src/pages/materials/index.html",
         // Add other entry points here if needed
       },
     },
