@@ -22,6 +22,7 @@ export default {
         debugUI: "src/pages/debug-ui/index.html",
         textures: "src/pages/textures/index.html",
         materials: "src/pages/materials/index.html",
+        text: "src/pages/3d-text/index.html",
         // Add other entry points here if needed
       },
     },

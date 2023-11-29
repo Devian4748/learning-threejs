@@ -330,3 +330,21 @@ The algorithms that decide on the color of each pixel are written in programs ca
 - MeshStandardMaterial  
   The MeshStandardMaterial uses physically based rendering principles.
 - MeshPhysicalMaterial
+
+## 3D Text
+
+Three.js already supports 3D text geometries with the TextGeometry class. The problem is that you must specify a font, and this font must be in a particular json format called typeface.
+
+### How to load font
+
+- Using Font Loader
+- Using TextGeometry
+
+### Center the text
+
+- Calculate Bevel size, thickness with boundingBox
+- Using the BufferGeometry class method : center()
+
+**bounding**
+
+> The bounding is the information associated with the geometry that tells what space is taken by that geometry. It can be a box or a sphere.
